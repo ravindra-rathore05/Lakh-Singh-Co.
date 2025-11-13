@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lakh Singh and Company</title>
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ====== NAVBAR ====== */
+    nav {
+      background: #004d40;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #80cbc4;
+    }
+
+    /* Hamburger menu button (mobile only) */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8em;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ====== CAROUSEL ====== */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+     padding-top: 20px;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .slide img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-buttons button {
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+
+    /* ====== SECTION STYLES ====== */
+    section {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #004d40;
+      border-bottom: 2px solid #80cbc4;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #e0f2f1;
+    }
+
+    /* ====== CONTACT FORM ====== */
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: #004d40;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    form button:hover {
+      background-color: #00695c;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #004d40;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    /* ====== RESPONSIVE DESIGN ====== */
+    @media (max-width: 900px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #004d40;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      section {
+        margin: 15px;
+        padding: 15px;
+      }
+      .slide img {
+        height: 40vh;
+      }
+    }
+
+    @media (max-width: 500px) {
+      nav h1 {
+        font-size: 1.2em;
+      }
+      form button {
+        width: 100%;
+      }
+      th, td {
+        font-size: 0.9em;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav>
+    <h1>Lakh Singh & Co.</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="menu">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ====== CAROUSEL ====== -->
+  <div class="carousel">
+    <h2>Our Innovation</h2>
+    <div class="slides">
+      <div class="slide"><img src="https://cdn.confident-group.com/wp-content/uploads/2024/12/27103036/types-of-real-estate-overview-scaled.jpg" alt="Real Estate Overview"></div>
+      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQogpxpkuWFtVT7eQWnihLX_kNlcwvxqeCGEA&s" alt="Construction Project"></div>
+      <div class="slide"><img src="https://www.abnewswire.com/uploads/1671531794.jpeg" alt="Ongoing Project"></div>
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="moveSlide(-1)">❮</button>
+      <button onclick="moveSlide(1)">❯</button>
+    </div>
+  </div>
+
+  <!-- ====== COMPANY OVERVIEW ====== -->
+  <section id="overview">
+    <h2>Company Overview</h2>
+    <p><strong>Founded:</strong> 2017</p>
+    <p><strong>Location:</strong> Chandan, Jaisalmer, Rajasthan</p>
+    <p><strong>GST No.:</strong> 08BWXPS8136HIZL</p>
+    <p><strong>Email:</strong> bhatilakhsingh01@gmail.com</p>
+    <p><strong>Director:</strong> Mr. Lakh Singh (+91-9413089208)</p>
+  </section>
+
+  <!-- ====== PROJECTS ====== -->
+  <section id="projects">
+    <h2>Project Highlights</h2>
+    <h3>Completed Projects</h3>
+    <ul>
+      <li>Adani Renew Power Project – Pile Foundation</li>
+      <li>BT Road Construction – Chandan Village</li>
+      <li>1 km Boundary Wall – Forest Area</li>
+    </ul>
+    <h3>Ongoing Projects</h3>
+    <ul>
+      <li>Road Construction – Chandan Village</li>
+      <li>Community Hall – Babbar Magra</li>
+    </ul>
+  </section>
+
+  <!-- ====== TEAM ====== -->
+  <section id="team">
+    <h2>Technical Team</h2>
+    <table>
+      <tr><th>Name</th><th>Designation</th><th>Contact</th></tr>
+      <tr><td>Vikram Singh</td><td>Project Manager</td><td>9001959494</td></tr>
+      <tr><td>Virendra Singh</td><td>2nd Project Manager</td><td>9414761654</td></tr>
+      <tr><td>Tarun Singh Sodha</td><td>Site Engineer</td><td>9672184335</td></tr>
+      <tr><td>Mohit Khatri</td><td>Site Incharge</td><td>6375570349</td></tr>
+      <tr><td>Prashant</td><td>Accountant</td><td>7976529513</td></tr>
+      <tr><td>Rahul Bhati</td><td>Supervisor</td><td>9521011359</td></tr>
+    </table>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Head Office:</strong> Lakh Singh and Company, Chandan, Jaisalmer (Rajasthan)</p>
+    <p><strong>Email:</strong> bhatilakhsingh01@gmail.com</p>
+    <p><strong>Phone:</strong> +91-9413089208</p>
+
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="formResponse" style="text-align:center; margin-top:10px;"></p>
+
+    <iframe
+      src="https://www.google.com/maps?q=Chandan,+Jaisalmer,+Rajasthan&output=embed"
+      width="100%" height="300"
+      style="border:0; border-radius:10px; margin-top:20px;"
+      allowfullscreen="" loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <p>&copy; 2025 Lakh Singh and Company | Designed for professional presentation</p>
+  </footer>
+
+  <!-- ====== SCRIPT ====== -->
+  <script>
+    /* Carousel */
+    let currentIndex = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function moveSlide(direction) {
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // Auto-slide every 4 seconds
+    setInterval(() => moveSlide(1), 4000);
+
+    /* Menu Toggle (Mobile) */
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
+
+    /* Contact Form */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('formResponse').textContent = "✅ Thank you! Your message has been sent.";
+      this.reset();
+    });
+  </script>
+</body>
+</html>
