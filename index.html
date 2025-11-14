@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lakh Singh and Company</title>
+  <title>Bhagyashree and Company</title>
+
   <style>
     /* ====== GLOBAL STYLES ====== */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: "Poppins", Arial, sans-serif;
       background: #f4f4f4;
       color: #333;
+      line-height: 1.6;
     }
     html {
       scroll-behavior: smooth;
@@ -23,14 +28,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 12px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     nav h1 {
+      font-size: 1.4rem;
       margin: 0;
-      font-size: 1.5em;
+      white-space: nowrap;
     }
     nav ul {
       list-style: none;
@@ -38,18 +44,19 @@
       gap: 20px;
       margin: 0;
       padding: 0;
+      align-items: center;
     }
     nav ul li a {
       color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       transition: color 0.3s;
     }
     nav ul li a:hover {
       color: #80cbc4;
     }
 
-    /* Hamburger menu button (mobile only) */
+    /* Hamburger Menu */
     .menu-toggle {
       display: none;
       font-size: 1.8em;
@@ -64,7 +71,7 @@
       position: relative;
       max-width: 100%;
       margin: 0 auto;
-     padding-top: 20px;
+      padding-top: 10px;
       overflow: hidden;
     }
     .slides {
@@ -77,7 +84,7 @@
     }
     .slide img {
       width: 100%;
-      height: 60vh;
+      height: 65vh;
       object-fit: cover;
       display: block;
     }
@@ -98,7 +105,7 @@
       font-size: 1.5em;
     }
 
-    /* ====== SECTION STYLES ====== */
+    /* ====== SECTIONS ====== */
     section {
       max-width: 1100px;
       margin: 20px auto;
@@ -112,12 +119,15 @@
       border-bottom: 2px solid #80cbc4;
       padding-bottom: 5px;
       margin-bottom: 15px;
+      text-align: center;
     }
 
+    /* ====== TABLE ====== */
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
+      font-size: 1rem;
     }
     th, td {
       border: 1px solid #ccc;
@@ -128,17 +138,67 @@
       background: #e0f2f1;
     }
 
+    /* ====== GALLERY ====== */
+    #gallery, #certifications {
+      text-align: center;
+    }
+
+    .gallery-grid, .certification-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .gallery-item, .cert-item {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover, .cert-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .gallery-item img, .cert-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .cert-item img {
+      height: 150px;
+      object-fit: contain;
+      padding: 10px;
+      background: #f9f9f9;
+    }
+    .gallery-item p, .cert-item p {
+      padding: 10px;
+      margin: 0;
+      font-weight: 500;
+      color: #004d40;
+      background: #e0f2f1;
+      font-size: 0.95em;
+    }
+
     /* ====== CONTACT FORM ====== */
     form {
       max-width: 600px;
       margin: auto;
     }
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
     form input, form textarea {
       width: 100%;
       padding: 10px;
-      margin: 8px 0;
+      margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 1em;
     }
     form button {
       background-color: #004d40;
@@ -148,6 +208,7 @@
       border-radius: 4px;
       cursor: pointer;
       font-size: 1em;
+      margin-top: 10px;
     }
     form button:hover {
       background-color: #00695c;
@@ -160,6 +221,7 @@
       text-align: center;
       padding: 15px;
       margin-top: 20px;
+      font-size: 0.9rem;
     }
 
     /* ====== RESPONSIVE DESIGN ====== */
@@ -172,6 +234,7 @@
         left: 0;
         width: 100%;
         background: #004d40;
+        text-align: center;
       }
       nav ul.active {
         display: flex;
@@ -184,33 +247,42 @@
         padding: 15px;
       }
       .slide img {
-        height: 40vh;
+        height: 45vh;
+      }
+      table {
+        font-size: 0.9rem;
       }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       nav h1 {
-        font-size: 1.2em;
+        font-size: 1.1rem;
+      }
+      .gallery-item img, .cert-item img {
+        height: 130px;
+      }
+      .gallery-item p, .cert-item p {
+        font-size: 0.85em;
       }
       form button {
         width: 100%;
-      }
-      th, td {
-        font-size: 0.9em;
       }
     }
 
   </style>
 </head>
+
 <body>
 
   <!-- ====== NAVBAR ====== -->
   <nav>
-    <h1>Lakh Singh & Co.</h1>
+    <h1>BHAGYASHREE AND COMPANY</h1>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <ul id="menu">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -218,7 +290,6 @@
 
   <!-- ====== CAROUSEL ====== -->
   <div class="carousel">
-    <h2>Our Innovation</h2>
     <div class="slides">
       <div class="slide"><img src="https://cdn.confident-group.com/wp-content/uploads/2024/12/27103036/types-of-real-estate-overview-scaled.jpg" alt="Real Estate Overview"></div>
       <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQogpxpkuWFtVT7eQWnihLX_kNlcwvxqeCGEA&s" alt="Construction Project"></div>
@@ -230,14 +301,14 @@
     </div>
   </div>
 
-  <!-- ====== COMPANY OVERVIEW ====== -->
+  <!-- ====== OVERVIEW ====== -->
   <section id="overview">
     <h2>Company Overview</h2>
     <p><strong>Founded:</strong> 2017</p>
-    <p><strong>Location:</strong> Chandan, Jaisalmer, Rajasthan</p>
-    <p><strong>GST No.:</strong> 08BWXPS8136HIZL</p>
-    <p><strong>Email:</strong> bhatilakhsingh01@gmail.com</p>
-    <p><strong>Director:</strong> Mr. Lakh Singh (+91-9413089208)</p>
+    <p><strong>Location:</strong> BJS Colony, Jodhpur, Rajasthan</p>
+    <p><strong>GST No.:</strong> 08BYIPR7932RZZP</p>
+    <p><strong>Email:</strong> sonusingh73331@gmail.com</p>
+    <p><strong>Director:</strong> Mr. Sonu Singh Rathore (+91-9460111078)</p>
   </section>
 
   <!-- ====== PROJECTS ====== -->
@@ -246,8 +317,9 @@
     <h3>Completed Projects</h3>
     <ul>
       <li>Adani Renew Power Project – Pile Foundation</li>
-      <li>BT Road Construction – Chandan Village</li>
-      <li>1 km Boundary Wall – Forest Area</li>
+      <li>50+ successful installations across Rajasthan.</li>
+      <li>Rooftop solar systems (1kW to 10kW) for clients.</li>
+      <li>10 km Boundary Wall – Forest Area, Jodhpur</li>
     </ul>
     <h3>Ongoing Projects</h3>
     <ul>
@@ -256,55 +328,87 @@
     </ul>
   </section>
 
+  <!-- ====== CERTIFICATION GALLERY ====== -->
+  <section id="certifications">
+    <h2>Our Certifications</h2>
+    <p>We are proud to be certified by top authorities in our industry.</p>
+    <div class="certification-grid">
+      <div class="cert-item">
+        <img src="photos/Screenshot 2025-11-13 165703.png" alt="ISO 9001">
+        <p>ISO 9001:2015 Quality Management</p>
+      </div>
+      <div class="cert-item">
+        <img src="photos/Screenshot 2025-11-13 165834.png" alt="ISO 14001">
+        <p>ISO 14001:2015 Environmental Management</p>
+      </div>
+      <div class="cert-item">
+        <img src="photos/Screenshot 2025-11-13 170001.png" alt="Govt License">
+        <p>Government Contractor License</p>
+      </div>
+      <div class="cert-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/3616/3616422.png" alt="MSME">
+        <p>MSME Registration</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GALLERY ====== -->
+  <section id="gallery">
+    <h2>Project Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt=""><p>Solar Plant Foundation</p></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1597003043671-7a0c4b9c0b1a" alt=""><p>Boundary Wall Project</p></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092334760-5cbf39b3a3f8" alt=""><p>Road Construction</p></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" alt=""><p>Team at Work</p></div>
+    </div>
+  </section>
+
   <!-- ====== TEAM ====== -->
   <section id="team">
     <h2>Technical Team</h2>
-    <table>
-      <tr><th>Name</th><th>Designation</th><th>Contact</th></tr>
-      <tr><td>Vikram Singh</td><td>Project Manager</td><td>9001959494</td></tr>
-      <tr><td>Virendra Singh</td><td>2nd Project Manager</td><td>9414761654</td></tr>
-      <tr><td>Tarun Singh Sodha</td><td>Site Engineer</td><td>9672184335</td></tr>
-      <tr><td>Mohit Khatri</td><td>Site Incharge</td><td>6375570349</td></tr>
-      <tr><td>Prashant</td><td>Accountant</td><td>7976529513</td></tr>
-      <tr><td>Rahul Bhati</td><td>Supervisor</td><td>9521011359</td></tr>
-    </table>
+    <div style="overflow-x:auto;">
+      <table>
+        <tr><th>Name</th><th>Designation</th><th>Contact</th></tr>
+        <tr><td>C S Bahti</td><td>Project Manager</td><td>8619919414</td></tr>
+        <tr><td>Sambhu Singh Rathore</td><td>2nd Project Manager</td><td>9602590977</td></tr>
+        <tr><td>Chandan Singh</td><td>Site Engineer</td><td>7742833773</td></tr>
+        <tr><td>Prem Singh Bhati</td><td>Accountant</td><td>8003827227</td></tr>
+        <tr><td>Ghanshyam Singh</td><td>Supervisor</td><td>8302802900</td></tr>
+      </table>
+    </div>
   </section>
 
   <!-- ====== CONTACT ====== -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <p><strong>Head Office:</strong> Lakh Singh and Company, Chandan, Jaisalmer (Rajasthan)</p>
-    <p><strong>Email:</strong> bhatilakhsingh01@gmail.com</p>
-    <p><strong>Phone:</strong> +91-9413089208</p>
+    <p><strong>Head Office:</strong> Plot No.172 ZSB, BJS Colony, Jodhpur, Rajasthan, 342006</p>
+    <p><strong>Email:</strong> sonusingh73331@gmail.com</p>
+    <p><strong>Phone:</strong> +91-9460111078</p>
 
     <form id="contactForm">
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" required>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" required>
 
       <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+      <input type="tel" id="phone" pattern="[0-9]{10}" required>
 
       <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <textarea id="message" rows="5" required></textarea>
 
       <button type="submit">Send Message</button>
     </form>
     <p id="formResponse" style="text-align:center; margin-top:10px;"></p>
 
-    <iframe
-      src="https://www.google.com/maps?q=Chandan,+Jaisalmer,+Rajasthan&output=embed"
-      width="100%" height="300"
-      style="border:0; border-radius:10px; margin-top:20px;"
-      allowfullscreen="" loading="lazy">
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6790.215906667702!2d73.05487944166492!3d26.302551976140073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418d19e441e595%3A0x2127c149b0ef635e!2sBJS%20Colony%2C%20Jodhpur%2C%20Rajasthan%20342006!5e1!3m2!1sen!2sin!4v1763032179183!5m2!1sen!2sin"
+      width="100%" height="300" style="border:0; border-radius:10px; margin-top:20px;" allowfullscreen="" loading="lazy"></iframe>
   </section>
 
   <!-- ====== FOOTER ====== -->
   <footer>
-    <p>&copy; 2025 Lakh Singh and Company | Designed for professional presentation</p>
+    <p>&copy; 2025 Bhagyashree & Co. | Designed for professional presentation</p>
   </footer>
 
   <!-- ====== SCRIPT ====== -->
@@ -319,10 +423,9 @@
       slides.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    // Auto-slide every 4 seconds
     setInterval(() => moveSlide(1), 4000);
 
-    /* Menu Toggle (Mobile) */
+    /* Menu Toggle */
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('active');
     }
